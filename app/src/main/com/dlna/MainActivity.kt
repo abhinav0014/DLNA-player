@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.media3.common.MediaItem
 import androidx.media3.exoplayer.ExoPlayer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.player.databinding.ActivityMainBinding
+import com.dlna.databinding.ActivityMainBinding
 import org.fourthline.cling.model.meta.RemoteDevice
 
 class MainActivity : AppCompatActivity() {
