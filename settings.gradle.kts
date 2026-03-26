@@ -3,7 +3,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://jitpack.io")
+        maven("https://artifactory.distri-mind.fr/ui/native/gradle-release/")
     }
 }
 
