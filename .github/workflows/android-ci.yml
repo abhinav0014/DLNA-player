@@ -10,7 +10,6 @@ permissions:
 env:
   APPVAULT_REPO: "abster07/app-vault"
   APP_ID: "livetv-player"
-  APK_NAME: "livetv-player.apk"
 
 
 jobs:
@@ -33,12 +32,12 @@ jobs:
 
       - name: Build APK
         run: ./gradlew assembleRelease
-      
-      - name: Rename APK to universal name
-        run: mv app/build/outputs/apk/release/app-release.apk ${{ env.APK_NAME }}
 
+      - name: Set APK name
+        run: echo "APK_NAME=app/build/outputs/apk/release/app-release.apk" >> $GITHUB_ENV
+      
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: release-apk
+          name: app-release
           path: ${{ env.APK_NAME }}
