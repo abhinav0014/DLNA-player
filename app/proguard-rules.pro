@@ -3,11 +3,14 @@
 -keep class com.google.android.gms.cast.framework.** { *; }
 -dontwarn com.google.android.gms.cast.**
 
-# Required: keep the CastOptionsProvider so the Cast framework can find it.
--keep class com.streamsphere.app.cast.CastOptionsProvider { *; }
+# UPDATED: Points to your new package
+-keep class com.dlna.cast.CastOptionsProvider { *; }
 
-# ── jUPnP / DLNA ───────────────────────────────────────────────────────────────
+# ── jUPnP / Cling / DLNA ───────────────────────────────────────────────────────
+# Since you are using DM-UPnP-Android (Cling fork), we need to keep org.fourthline
+-keep class org.fourthline.cling.** { *; }
 -keep class org.jupnp.** { *; }
+-dontwarn org.fourthline.cling.**
 -dontwarn org.jupnp.**
 -dontwarn org.slf4j.**
 
@@ -15,7 +18,7 @@
 -keep class androidx.media3.** { *; }
 -dontwarn androidx.media3.**
 
-# Retain custom FFMPEG decoder renderer from the local AAR.
+# Retain custom FFMPEG decoder renderer
 -keep class com.google.android.exoplayer2.ext.ffmpeg.** { *; }
 
 # ── Room ───────────────────────────────────────────────────────────────────────
@@ -27,12 +30,17 @@
 -keep class com.google.gson.** { *; }
 -keepattributes Signature
 -keepattributes *Annotation*
--keep class com.streamsphere.app.data.model.** { *; }
+# UPDATED: Points to your new data models
+-keep class com.dlna.data.model.** { *; }
 
 # ── Hilt ───────────────────────────────────────────────────────────────────────
 -keep class dagger.hilt.** { *; }
 -keep class javax.inject.** { *; }
 -dontwarn dagger.hilt.**
 
-# Also keep your specific ViewModel so Hilt can inject it properly in Release
--keep class com.streamsphere.app.viewmodel.** { *; }
+# UPDATED: Points to your specific ViewModels
+-keep class com.dlna.viewmodel.** { *; }
+
+# ── General App Maintenance ──────────────────────────────────────────────────
+# Prevent ProGuard from stripping your MainActivity which the Manifest needs
+-keep class com.dlna.MainActivity { *; }
