@@ -24,7 +24,7 @@ dependencies {
     implementation("androidx.media3:media3-ui:1.3.1")
 
     // DLNA (Cling fork)
-    implementation("com.github.JasonMahdjoub:DM-UPnP-Android:2.0.0")
+    implementation("com.github.JasonMahdjoub:DM-UPnP-Android:master-SNAPSHOT")
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 }
